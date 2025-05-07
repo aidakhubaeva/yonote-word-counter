@@ -1,0 +1,211 @@
+:root {
+    color-scheme: light dark;
+}
+
+/* Основные настройки окна */
+body {
+    width: 250px;
+    padding: 0px;
+
+    font-family: system-ui;
+    text-align: center;
+    font-size: 0.75em;
+
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: default;
+}
+
+/* Строка верхнего или нижнего меню */
+.menu {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+/* Полужирные заголовки в меню */
+.menu .title {
+    font-weight: 700;
+}
+
+/* Иконка в кнопке */
+.button svg {
+    height: 1em;
+    width: 1em;
+    margin-bottom: -0.12em;
+    fill: rgb(0, 0, 0);
+}
+
+/* Строка с записью */
+.record {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 0.25em 0 0.25em 0;
+}
+
+/* Заголовок записи */
+.record .title {
+    padding-left: 0.25em;
+    flex-grow: 2;
+    text-align: left;
+    display: table;
+    width: 100%;
+    padding-right: 0.5em;
+}
+
+/* Обрезание текста заголовка в троеточие */
+.record .title span {
+    display: table-cell;
+    max-width: 1px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.button_action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* Выделение полужирным выделенной строки */
+.selected {
+    font-weight: 700;
+}
+
+/* Кнопка клопирования при наведении на счетчик страницы */
+.record-counter {
+    flex-shrink: 0;
+}
+
+.record-counter svg {
+    display: none;
+}
+
+.record-counter:hover svg {
+    display: inline;
+}
+
+/* Настройки заглушки когда нет записей */
+.placeholder {
+    text-align: center;
+    width: 100%;
+    user-select: none;
+    cursor: default;
+}
+
+/* Цвет кнопок при наведении  */
+.action:hover {
+    color: rgb(0, 122, 255);
+}
+
+.action:hover svg {
+    fill: rgb(0, 122, 255);
+}
+
+.danger:hover {
+    color: rgb(255, 59, 48);
+}
+
+.danger:hover svg {
+    fill: rgb(255, 59, 48);
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.2;
+}
+
+/* Сетка настроек */
+.settings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: start;
+}
+
+/* Заголовок раздела настроек */
+.settings-title {
+    text-align: center;
+    font-weight: 700;
+    padding-bottom: 0.6em;
+}
+
+/* Сама настройка */
+.setting {
+    padding-bottom: 0.6em;
+}
+
+/* Серый цвет для неактивных настроек */
+.disabled-setting {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Не даём пользователю кликать по лейблу отключённого чекбокса */
+.disabled-setting label {
+    cursor: not-allowed;
+}
+
+/* Иконки чекбоксов и радио кнопок */
+input:where([type="checkbox"], [type="radio"]) {
+    display: none;
+}
+
+input:where([type="checkbox"], [type="radio"])+label:before {
+    display: inline-block;
+}
+
+input:where([type="checkbox"], [type="radio"])+label svg {
+    height: 1.1em;
+    width: 1.1em;
+    margin-bottom: -0.2em;
+}
+
+input:where([type="checkbox"], [type="radio"])+label svg:first-of-type {
+    display: none;
+}
+
+input:where([type="checkbox"], [type="radio"])+label svg:last-of-type {
+    display: inline-block;
+}
+
+input:where([type="checkbox"], [type="radio"]):checked+label svg:first-of-type {
+    display: inline-block;
+}
+
+input:where([type="checkbox"], [type="radio"]):checked+label svg:last-of-type {
+    display: none;
+}
+
+/* Цвета в темной теме */
+@media (prefers-color-scheme: dark) {
+    .button svg {
+        fill: rgb(255, 255, 255);
+    }
+
+    label svg {
+        fill: rgb(255, 255, 255);
+    }
+
+    .action:hover {
+        color: rgb(10, 132, 255);
+    }
+
+    .action:hover svg {
+        fill: rgb(10, 132, 255);
+    }
+
+    .danger:hover {
+        color: rgb(255, 69, 58);
+    }
+
+    .danger:hover svg {
+        fill: rgb(255, 69, 58);
+    }
+
+    hr {
+        opacity: 0.6;
+        border-top: 1px solid #fff;
+    }
+}

@@ -1,0 +1,69 @@
+{
+    "manifest_version": 3,
+  
+    "name": "Yonote Word Counter Extension",
+    "description": "Yonote Word Counter helps you count words or characters on Notion pages to keep track of your productivity at work",
+    "version": "1.25",
+    "author": "Aida_khubaeva",
+    "homepage_url": "https://t.me/AidaKhubaeva",
+  
+    "icons": {
+      "48": "images/icon-48-dark.png",
+      "96": "images/icon-96-dark.png",
+      "128": "images/icon-128-dark.png",
+      "256": "images/icon-256-dark.png",
+      "512": "images/icon-512-dark.png"
+    },
+  
+    "background": {
+      "service_worker": "background.js"
+    },
+  
+    "content_scripts": [
+      {
+        "js": [ "content.js" ],
+        "matches": [ "*://*.yonote.ru/*" ],
+        "run_at": "document_end"
+      },
+      {
+        "js": [ "iconchange.js" ],
+        "matches": [ "<all_urls>" ]
+      }
+    ],
+  
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "images/toolbar-icon-16.png",
+        "19": "images/toolbar-icon-19.png",
+        "24": "images/toolbar-icon-24.png",
+        "32": "images/toolbar-icon-32.png",
+        "38": "images/toolbar-icon-38.png",
+        "48": "images/toolbar-icon-48.png",
+        "128": "images/toolbar-icon-128.png"
+      },
+      "theme_icons": [
+        {
+          "light": "images/icon-32.png",
+          "dark": "images/icon-32-dark.png",
+          "size": 32
+        },
+        {
+          "light": "images/icon-48.png",
+          "dark": "images/icon-48-dark.png",
+          "size": 48
+        },
+        {
+          "light": "images/icon-128.png",
+          "dark": "images/icon-128-dark.png",
+          "size": 128
+        }
+      ]
+    },
+  
+    "permissions": [
+      "activeTab",
+      "storage",
+      "scripting"
+    ]
+  }

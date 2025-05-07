@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="popup.css">
+    <script type="module" src="popup.js"></script>
+</head>
+
+<body>
+    <div id="main-page">
+        <div class="menu">
+            <div class="button action" id="to-settings">
+                <svg>
+                    <use href="icons.svg#settings"></use>
+                </svg>
+            </div>
+            <div class="title">
+                Yonote Word Counter
+            </div>
+            <div class="button action" id="add-record">
+                <svg>
+                    <use href="icons.svg#plus"></use>
+                </svg>
+            </div>
+        </div>
+        <hr noshade size="1px" width="100%">
+        <div id="table" style="display: none">
+            <div id="records">
+            </div>
+            <hr noshade size="1px" width="100%">
+
+            <div class="menu">
+                <div class="button danger" id="clear-all">
+                    <svg>
+                        <use href="icons.svg#trash"></use>
+                    </svg>
+                    Clear all
+                </div>
+                <div class="button action button_action" id="copy-all">
+                    <div>
+                        <svg style="margin-bottom: -0.1em;">
+                            <use href="icons.svg#copy"></use>
+                        </svg>
+                        <span class="if-words">Words: </span>
+                        <span class="if-symbols" style="display: none;">Symbols: </span>
+                        <span id="words-summary" class="title">0</span>
+                    </div>
+                    <div id="char-stats" style="text-align: center; margin-top: 0.5em;">
+                        <span class="if-words">Cyr: </span>
+                        <span class="if-symbols" style="display: none;">Cyr: </span>
+                        <span id="cyr-summary" class="title">0</span>
+                    </div>
+                    <div id="char-stats" style="text-align: center;">
+                        <span class="if-words">Lat: </span>
+                        <span class="if-symbols" style="display: none;">Lat: </span>
+                        <span id="lat-summary" class="title">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="placeholder" id="clear" style="display: none">
+        To start counting <span class="if-words">words</span><span class="if-symbols"
+            style="display: none;">symbols</span>, <br>
+        click the <span class="button"><svg>
+                <use href="icons.svg#plus"></use>
+            </svg></span> sign <br>
+        when Notion tab is active.
+    </div>
+    </div>
+    <div id="settings-page" style="display: none;">
+        <div class="menu">
+            <div class="button action" id="to-main">
+                <svg>
+                    <use href="icons.svg#back"></use>
+                </svg>
+            </div>
+            <div class="title">
+                Settings
+            </div>
+            <div></div>
+        </div>
+        <hr noshade size="1px" width="100%">
+        <div class="settings-title">
+            Types of blocks to be counted:
+        </div>
+        <div class="settings-grid" id="settings-allow">
+        </div>
+        <div class="settings-title">
+            Types of text style to be counted:
+        </div>
+        <div class="settings-grid" id="settings-formatting">
+        </div>
+        <div class="button action" style="margin-top: 0.3em; margin-bottom: 1em;" id="debug">
+            <svg style="margin-bottom: -0.1em;">
+                <use href="icons.svg#copy"></use>
+            </svg>
+            <b>Copy raw text</b> to check your settings
+        </div>
+
+        <!-- Новая кнопка "Uncheck all" под "Copy raw text" -->
+        <div class="button danger" style="margin-top: 0.3em; margin-bottom: 1em;" id="uncheck-all">
+            <svg>
+                <use href="icons.svg#trash"></use>
+            </svg>
+            Uncheck all
+        </div>
+
+        <div class="settings-title">
+            Counter type:
+        </div>
+        <div class="settings-grid" id="settings-type">
+        </div>
+        <div style="margin-top: 0.5em;">
+            Notion updates may cause bugs. <br> In this case, please contact the <u class="button action"
+                id="author">author</u>
+        </div>
+    </div>
+</body>
